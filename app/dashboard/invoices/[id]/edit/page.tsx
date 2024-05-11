@@ -3,6 +3,12 @@ import { updateInvoice } from '@/app/lib/actions';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import Form from '@/app/ui/invoices/create-form';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+    title: 'Invoices Details',
+  };
  
 export default async function Page({ params}: { params: { id: string} }) {
     const id = params.id;
