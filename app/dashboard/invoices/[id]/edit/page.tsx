@@ -1,14 +1,8 @@
-import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
-import { updateInvoice } from '@/app/lib/actions';
-import { notFound } from 'next/navigation';
+import Form from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import Form from '@/app/ui/invoices/create-form';
-import { Metadata } from 'next';
-
-
-export const metadata: Metadata = {
-    title: 'Invoices Details',
-  };
+import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
+import { notFound } from 'next/navigation';
+import React from 'react';
  
 export default async function Page({ params}: { params: { id: string} }) {
     const id = params.id;
@@ -18,7 +12,7 @@ export default async function Page({ params}: { params: { id: string} }) {
     ])
 
     if (!invoice) {
-       return notFound();
+        notFound();
     }
 
     return (
